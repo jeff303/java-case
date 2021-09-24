@@ -70,6 +70,14 @@ doesn't matter.
   "Java 20 and beyond")
 ```
 
+## Future Proof
+
+This library attempts to be future proof, to support major Java versions that may be released after its latest release.  Suppose `K`=`J+1`, and you have a clause
+for `J+`. At macro expansion time, the Clojure compiler detects the Java version is `K` (via the JVM property). This clause should work as expected. However, I
+haven't thought of the best way to comprehensively test this (suggestions welcomed).
+
+In any case, you can always just use the default clause to specify the "latest" form.
+
 ## Building and Testing
 
 This project was created with https://github.com/seancorfield/clj-new
