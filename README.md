@@ -10,12 +10,12 @@ Latest stable release: 1.0
 CLI/deps.edn dependency information:
 
 ```clojure
-org.clojars.jeff_evans/java-case {:mvn/version "1.0"}
+org.clojars.jeff_evans/java-case {:mvn/version "1.1"}
 ```
 Leiningen dependency information:
 
 ```clojure
-[jeff_evans/java-case "1.0"]
+[jeff_evans/java-case "1.1"]
 ```
 
 This library is not yet deployed to Maven central.
@@ -57,7 +57,9 @@ doesn't matter.
                   "20+"  "Java 20 and beyond"))
 =>
 (clojure.core/case
-  (clojure.core/or us.jeffevans.java-case/*java-spec-version-override* "11")
+  (clojure.core/or
+    us.jeffevans.java-case/*java-spec-version-override*
+    (us.jeffevans.java-case/current-java-spec-version))
   ("11" "12" "13" "14" "15" "16")
   "Java 11 through 16"
   "17"

@@ -4,9 +4,7 @@
             [org.corfield.build :as bb]))
 
 (def lib 'org.clojars.jeff_evans/java-case)
-(def version "1.0")
-#_ ; alternatively, use MAJOR.MINOR.COMMITS:
-(def version (format "1.0.%s" (b/git-count-revs nil)))
+(def version "1.1")
 
 (defn test "Run the tests." [opts]
   (bb/run-tests opts))

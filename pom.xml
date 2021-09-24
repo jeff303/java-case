@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.clojars.jeff_evans</groupId>
   <artifactId>java-case</artifactId>
-  <version>1.0</version>
+  <version>1.1</version>
   <name>jeff_evans/java-case</name>
   <description>A simple Clojure macro for selecting different forms based on the runtime JDK version</description>
   <url>https://github.com/jeff-evans/java-case</url>

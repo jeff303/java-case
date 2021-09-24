@@ -3,7 +3,10 @@
 
 (def ^:dynamic *java-spec-version-override* nil)
 
-(def ^:private ^:const java-spec-version (System/getProperty "java.specification.version"))
+(defn current-java-spec-version
+  "Returns the current Java major version, from the java.specification.version JVM property."
+  []
+  (System/getProperty "java.specification.version"))
 
 (def ^:private ^:const highest-known-spec-version 17)
 
@@ -27,7 +30,7 @@
    (java-spec-versions nil))
   ([range-boundaries]
    (let [int-range-boundaries (filter #(re-matches #"\d+" %) (keys range-boundaries))
-         curr-version         (or *java-spec-version-override* java-spec-version)
+         curr-version         (or *java-spec-version-override* (current-java-spec-version))
          highest-v            (highest-version (conj int-range-boundaries curr-version))]
      (if (and highest-v (> highest-v highest-known-spec-version))
        (->> (inc highest-v)
@@ -106,5 +109,5 @@
   [& definitions]
   (let [num-defs   (count definitions)
         partitions (inputs->version-ranges (map first (partition 2 definitions)))]
-    `(case (or *java-spec-version-override* ~java-spec-version)
+    `(case (or *java-spec-version-override* (current-java-spec-version))
            ~@(map-indexed (partial map-indexed-case-exprs num-defs partitions) definitions))))
