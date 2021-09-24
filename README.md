@@ -5,7 +5,7 @@ to run on multiple JDK platforms, this can make things more concise.
 
 ## Releases and Dependency Information
 
-Latest stable release: 1.0
+Latest stable release: 1.1
 
 CLI/deps.edn dependency information:
 
